@@ -1,0 +1,15 @@
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+.vscode/
+.idea/
+
+# Env / secretos
+.env
+.env.local
+.env.*.local
+
+# Node (por si algun dia se agrega)
+node_modules/
+package-lock.json

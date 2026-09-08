@@ -1,0 +1,85 @@
+/* Paleta base — misma vibe que Mis Finanzas pero con acento violeta Bussie */
+body {
+  background-color: #f5f7fa;
+}
+
+.boot-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #6c757d;
+}
+
+/* Cards con sombra ligera */
+.card {
+  border: 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.stat-card .value {
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+.stat-card .label {
+  color: #6c757d;
+  font-size: 0.85rem;
+}
+
+/* Colores para tipos de hora extra */
+.text-extra { color: #26215c; }
+.text-recargo { color: #3c3489; }
+.text-money { color: #085041; }
+.text-warning-dim { color: #a56b0a; }
+
+/* Badges por tipo */
+.badge-tipo {
+  font-weight: 500;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+}
+.b-diurna  { background: #FAEEDA; color: #633806; }
+.b-nocturna { background: #E6F1FB; color: #0C447C; }
+.b-recargo { background: #EEEDFE; color: #3C3489; }
+.b-festivo { background: #FCEBEB; color: #791F1F; }
+
+/* Auth (mismo patrón que Mis Finanzas) */
+.auth-wrap {
+  max-width: 380px;
+  margin: 4rem auto 0;
+}
+
+/* Tabla más aireada */
+.table-hoja th {
+  color: #6c757d;
+  font-weight: 500;
+  border-bottom: 1px solid #dee2e6;
+}
+.table-hoja td {
+  vertical-align: middle;
+}
+
+/* Progress-like para porcentajes de recargo */
+.progress {
+  height: 0.9rem;
+}
+
+/* Botón violeta secundario para acciones destacadas de la app */
+.btn-violeta {
+  background-color: #26215c;
+  color: #fff;
+  border-color: #26215c;
+}
+.btn-violeta:hover {
+  background-color: #3c3489;
+  color: #fff;
+  border-color: #3c3489;
+}
+
+/* Utilities */
+.text-muted-sm {
+  color: #6c757d;
+  font-size: 0.85rem;
+}
+.no-underline { text-decoration: none; }
