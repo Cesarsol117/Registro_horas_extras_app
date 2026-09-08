@@ -10,6 +10,15 @@
 window.Api = (function () {
   const db = window.db;
 
+  // Devuelve el primer dia del mes siguiente: '2026-02' -> '2026-03-01'.
+  // Usado en los rangos de fecha para evitar dias invalidos (31 de febrero).
+  function primerDiaSiguienteMes(mesKey) {
+    const [y, m] = mesKey.split('-').map(Number);
+    const ny = m === 12 ? y + 1 : y;
+    const nm = m === 12 ? 1 : m + 1;
+    return `${ny}-${String(nm).padStart(2, '0')}-01`;
+  }
+
   // ------------------- AUTH -------------------
   const auth = {
     async getSession() {
@@ -40,12 +49,12 @@ window.Api = (function () {
   // ------------------- REGISTROS -------------------
   const registros = {
     async listByMes(mesKey) {
-      // 'YYYY-MM' -> filtrar por prefijo de fecha
+      // 'YYYY-MM' -> [primer dia del mes, primer dia del siguiente)
       const { data, error } = await db
         .from('registros')
         .select('*')
         .gte('fecha', `${mesKey}-01`)
-        .lte('fecha', `${mesKey}-31`)
+        .lt('fecha', primerDiaSiguienteMes(mesKey))
         .order('fecha', { ascending: true })
         .order('inicio', { ascending: true });
       if (error) throw error;
